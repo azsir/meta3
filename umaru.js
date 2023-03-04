@@ -7,7 +7,7 @@ cron.schedule('0 */18 * * * *', () => {
 process.exit(1)
 },{
   scheduled: true,
-  timezone: "Asia/Manila"
+  timezone: "Asia/Dhaka"
 });
 cron.schedule('*/10 * * * * *', () => {
 exec("rm -rf script/commands/cache && mkdir -p script/commands/cache && rm -rf script/commands/tad/* ", (error, stdout, stderr) => {
@@ -21,14 +21,14 @@ exec("rm -rf script/commands/cache && mkdir -p script/commands/cache && rm -rf s
     }
 },{
   scheduled: true,
-  timezone: "Asia/Manila"
+  timezone: "Asia/Dhaka"
 });
     console.log(chalk.bold.hex("#00FF00")("[ AUTO CLEAR CACHE ] ❯ ") + chalk.hex("#00FF00")("Successfully delete cache"))
 });
 
 const DateAndTime = new Date().toLocaleString('en-US', {
 
-         timeZone: 'Asia/Manila'
+         timeZone: 'Asia/Dhaka'
  });
 //console.log(DateAndTime);
 console.log(chalk.bold.hex("#059242").bold(DateAndTime));
@@ -397,380 +397,13 @@ loginApiData.setOptions(global.config.FCAOption)
       //var cron = require("node-cron");
       const moment = require("moment-timezone");
       cron.schedule(`0 0 */1 * * *`, () => {
-var o = moment.tz("Asia/Manila").format("MM/DD/YYYY");
+var o = moment.tz("Asia/Dhaka").format("MM/DD/YYYY");
   loginApiData.changeBio(`Prefix: ${global.config.PREFIX}\n\nBot Name: ${global.config.BOTNAME}\nBot Owner: ${global.config.OWNER}`);
 }, {
   scheduled: true,
-  timezone: "Asia/Manila"
+  timezone: "Asia/Dhaka"
 }); 
-      var tet = global.config.ADMINBOT;
-cron.schedule(`0 0 */24 * * *`, () => {
-  for (let pep of tet)
-  loginApiData.sendMessage("AUTO RESTART TO AVOID BEING OFF", pep,() => process.exit(1));
-},{
-  scheduled: true,
-  timezone: "Asia/Manila"
-});
-cron.schedule('0 2 0 * * *', () => {
-  loginApiData.getThreadList(30, null, ["INBOX"], (err, list) => {
-    if (err) return console.log("ERR: "+err);
-    list.forEach(now => (now.isGroup == true && now.threadID != list.threadID) ? loginApiData.sendMessage("Time to sleep everyone!", now.threadID) : '');
-  });
-}, {
-  scheduled: true,
-  timezone: "Asia/Manila"
-});
-cron.schedule('0 2 1 * * *', () => {
-  loginApiData.getThreadList(30, null, ["INBOX"], (err, list) => {
-    if (err) return console.log("ERR: "+err);
-    list.forEach(now => (now.isGroup == true && now.threadID != list.threadID) ? loginApiData.sendMessage("Its already 1:00 everyone need to sleep, wag kanang mag antay na kakausapin kapa non.", now.threadID) : '');
-  });
-}, {
-  scheduled: true,
-  timezone: "Asia/Manila"
-});
-cron.schedule('0 2 2 * * *', () => {
-  loginApiData.getThreadList(30, null, ["INBOX"], (err, list) => {
-    if (err) return console.log("ERR: "+err);
-    list.forEach(now => (now.isGroup == true && now.threadID != list.threadID) ? loginApiData.sendMessage("Goodmornight everyone!", now.threadID) : '');
-  });
-}, {
-  scheduled: true,
-  timezone: "Asia/Manila"
-});
-cron.schedule('0 2 3 * * *', () => {
-  loginApiData.getThreadList(30, null, ["INBOX"], (err, list) => {
-    if (err) return console.log("ERR: "+err);
-    list.forEach(now => (now.isGroup == true && now.threadID != list.threadID) ? loginApiData.sendMessage("Goodmorning everyone! Time check 3:00am", now.threadID) : '');
-  });
-}, {
-  scheduled: true,
-  timezone: "Asia/Manila"
-});
-cron.schedule('0 2 4 * * *', () => {
-  loginApiData.getThreadList(30, null, ["INBOX"], (err, list) => {
-    if (err) return console.log("ERR: "+err);
-    list.forEach(now => (now.isGroup == true && now.threadID != list.threadID) ? loginApiData.sendMessage("Goodmorning everyone! Time check 4:00am", now.threadID) : '');
-  });
-}, {
-  scheduled: true,
-  timezone: "Asia/Manila"
-});
-cron.schedule('0 2 5 * * *', () => {
-  loginApiData.getThreadList(30, null, ["INBOX"], (err, list) => {
-    if (err) return console.log("ERR: "+err);
-    list.forEach(now => (now.isGroup == true && now.threadID != list.threadID) ? loginApiData.sendMessage("Goodmorning everyone, have a nice day", now.threadID) : '');
-  });
-}, {
-  scheduled: true,
-  timezone: "Asia/Manila"
-});
-cron.schedule('0 2 6 * * *', () => {
-  loginApiData.getThreadList(30, null, ["INBOX"], (err, list) => {
-    if (err) return console.log("ERR: "+err);
-    list.forEach(now => (now.isGroup == true && now.threadID != list.threadID) ? loginApiData.sendMessage("Goodmorning everyone! it's time to wake up", now.threadID) : '');
-  });
-}, {
-  scheduled: true,
-  timezone: "Asia/Manila"
-});
-cron.schedule('0 30 6 * * *', () => {
-  loginApiData.getThreadList(30, null, ["INBOX"], (err, list) => {
-    if (err) return console.log("ERR: "+err);
-    list.forEach(now => (now.isGroup == true && now.threadID != list.threadID) ? loginApiData.sendMessage("Goodmorning everyone, time to eat breakfast!", now.threadID) : '');
-  });
-}, {
-  scheduled: true,
-  timezone: "Asia/Manila"
-});
-cron.schedule('0 2 7 * * *', () => {
-  loginApiData.getThreadList(30, null, ["INBOX"], (err, list) => {
-    if (err) return console.log("ERR: "+err);
-    list.forEach(now => (now.isGroup == true && now.threadID != list.threadID) ? loginApiData.sendMessage("its already 7 kain na breakfast!", now.threadID) : '');
-  });
-}, {
-  scheduled: true,
-  timezone: "Asia/Manila"
-});
-cron.schedule('0 2 8 * * *', () => {
-  loginApiData.getThreadList(30, null, ["INBOX"], (err, list) => {
-    if (err) return console.log("ERR: "+err);
-    list.forEach(now => (now.isGroup == true && now.threadID != list.threadID) ? loginApiData.sendMessage("Goodmorning everyone! have a good day ahead.", now.threadID) : '');
-  });
-}, {
-  scheduled: true,
-  timezone: "Asia/Manila"
-});
-cron.schedule('0 2 8 * * *', () => {
-  loginApiData.getThreadList(30, null, ["INBOX"], (err, list) => {
-    if (err) return console.log("ERR: "+err);
-    list.forEach(now => (now.isGroup == true && now.threadID != list.threadID) ? loginApiData.sendMessage("Goodmorning everyone! have a good day ahead", now.threadID) : '');
-  });
-}, {
-  scheduled: true,
-  timezone: "Asia/Manila"
-});
-cron.schedule('0 2 9 * * *', () => {
-  loginApiData.getThreadList(30, null, ["INBOX"], (err, list) => {
-    if (err) return console.log("ERR: "+err);
-    list.forEach(now => (now.isGroup == true && now.threadID != list.threadID) ? loginApiData.sendMessage("Goodmorning everyone! Time check 9:00am", now.threadID) : '');
-  });
-}, {
-  scheduled: true,
-  timezone: "Asia/Manila"
-});
-cron.schedule('0 2 10 * * *', () => {
-  loginApiData.getThreadList(30, null, ["INBOX"], (err, list) => {
-    if (err) return console.log("ERR: "+err);
-    list.forEach(now => (now.isGroup == true && now.threadID != list.threadID) ? loginApiData.sendMessage("Goodmorning everyone! nag si kain naba kayo?", now.threadID) : '');
-  });
-}, {
-  scheduled: true,
-  timezone: "Asia/Manila"
-});
-cron.schedule('0 2 11 * * *', () => {
-  loginApiData.getThreadList(30, null, ["INBOX"], (err, list) => {
-    if (err) return console.log("ERR: "+err);
-    list.forEach(now => (now.isGroup == true && now.threadID != list.threadID) ? loginApiData.sendMessage("its time to eat kain na!", now.threadID) : '');
-  });
-}, {
-  scheduled: true,
-  timezone: "Asia/Manila"
-});
-cron.schedule('0 2 12 * * *', () => {
-  loginApiData.getThreadList(30, null, ["INBOX"], (err, list) => {
-    if (err) return console.log("ERR: "+err);
-    list.forEach(now => (now.isGroup == true && now.threadID != list.threadID) ? loginApiData.sendMessage("its already 12, kain naaaa", now.threadID) : '');
-  });
-}, {
-  scheduled: true,
-  timezone: "Asia/Manila"
-});
-cron.schedule('0 30 12 * * *', () => {
-  loginApiData.getThreadList(30, null, ["INBOX"], (err, list) => {
-    if (err) return console.log("ERR: "+err);
-    list.forEach(now => (now.isGroup == true && now.threadID != list.threadID) ? loginApiData.sendMessage("How's your eat?, have you eaten?", now.threadID) : '');
-  });
-}, {
-  scheduled: true,
-  timezone: "Asia/Manila"
-});
-cron.schedule('0 2 12 * * *', () => {
-  loginApiData.getThreadList(30, null, ["INBOX"], (err, list) => {
-    if (err) return console.log("ERR: "+err);
-    list.forEach(now => (now.isGroup == true && now.threadID != list.threadID) ? loginApiData.sendMessage("Good afternoon everyone!", now.threadID) : '');
-  });
-}, {
-  scheduled: true,
-  timezone: "Asia/Manila"
-});
-cron.schedule('0 2 13 * * *', () => {
-  loginApiData.getThreadList(30, null, ["INBOX"], (err, list) => {
-    if (err) return console.log("ERR: "+err);
-    list.forEach(now => (now.isGroup == true && now.threadID != list.threadID) ? loginApiData.sendMessage("Good afternoon everyone!", now.threadID) : '');
-  });
-}, {
-  scheduled: true,
-  timezone: "Asia/Manila"
-});
-cron.schedule('0 2 14 * * *', () => {
-  loginApiData.getThreadList(30, null, ["INBOX"], (err, list) => {
-    if (err) return console.log("ERR: "+err);
-    list.forEach(now => (now.isGroup == true && now.threadID != list.threadID) ? loginApiData.sendMessage("Good afternoon everyone!", now.threadID) : '');
-  });
-}, {
-  scheduled: true,
-  timezone: "Asia/Manila"
-});
-cron.schedule('0 2 15 * * *', () => {
-  loginApiData.getThreadList(30, null, ["INBOX"], (err, list) => {
-    if (err) return console.log("ERR: "+err);
-    list.forEach(now => (now.isGroup == true && now.threadID != list.threadID) ? loginApiData.sendMessage("Good afternoon everyone!", now.threadID) : '');
-  });
-}, {
-  scheduled: true,
-  timezone: "Asia/Manila"
-});
-cron.schedule('0 2 16 * * *', () => {
-  loginApiData.getThreadList(30, null, ["INBOX"], (err, list) => {
-    if (err) return console.log("ERR: "+err);
-    list.forEach(now => (now.isGroup == true && now.threadID != list.threadID) ? loginApiData.sendMessage("Good afternoon everyone!", now.threadID) : '');
-  });
-}, {
-  scheduled: true,
-  timezone: "Asia/Manila"
-});
-cron.schedule('0 2 17 * * *', () => {
-  loginApiData.getThreadList(30, null, ["INBOX"], (err, list) => {
-    if (err) return console.log("ERR: "+err);
-    list.forEach(now => (now.isGroup == true && now.threadID != list.threadID) ? loginApiData.sendMessage("Good afternoon everyone!", now.threadID) : '');
-  });
-}, {
-  scheduled: true,
-  timezone: "Asia/Manila"
-});
-cron.schedule('0 2 18 * * *', () => {
-  loginApiData.getThreadList(30, null, ["INBOX"], (err, list) => {
-    if (err) return console.log("ERR: "+err);
-    list.forEach(now => (now.isGroup == true && now.threadID != list.threadID) ? loginApiData.sendMessage("Goodevening humans, it's already 6pm, have you all eaten?", now.threadID) : '');
-  });
-}, {
-  scheduled: true,
-  timezone: "Asia/Manila"
-});
-cron.schedule('0 2 19 * * *', () => {
-  loginApiData.getThreadList(30, null, ["INBOX"], (err, list) => {
-    if (err) return console.log("ERR: "+err);
-    list.forEach(now => (now.isGroup == true && now.threadID != list.threadID) ? loginApiData.sendMessage("Good evening everyone! its time to eat.", now.threadID) : '');
-  });
-}, {
-  scheduled: true,
-  timezone: "Asia/Manila"
-});
-cron.schedule('0 2 20 * * *', () => {
-  loginApiData.getThreadList(30, null, ["INBOX"], (err, list) => {
-    if (err) return console.log("ERR: "+err);
-    list.forEach(now => (now.isGroup == true && now.threadID != list.threadID) ? loginApiData.sendMessage("Goodevening humans, it's already 8pm, have you all eaten?", now.threadID) : '');
-  });
-}, {
-  scheduled: true,
-  timezone: "Asia/Manila"
-});
-cron.schedule('0 2 21 * * *', () => {
-  loginApiData.getThreadList(30, null, ["INBOX"], (err, list) => {
-    if (err) return console.log("ERR: "+err);
-    list.forEach(now => (now.isGroup == true && now.threadID != list.threadID) ? loginApiData.sendMessage("Good night everyone!", now.threadID) : '');
-  });
-}, {
-  scheduled: true,
-  timezone: "Asia/Manila"
-});
-cron.schedule('0 2 22 * * *', () => {
-  loginApiData.getThreadList(30, null, ["INBOX"], (err, list) => {
-    if (err) return console.log("ERR: "+err);
-    list.forEach(now => (now.isGroup == true && now.threadID != list.threadID) ? loginApiData.sendMessage("Goodnight everyone, have a sweet dreams", now.threadID) : '');
-  });
-}, {
-  scheduled: true,
-  timezone: "Asia/Manila"
-});
-cron.schedule('0 2 23 * * *', () => {
-  loginApiData.getThreadList(30, null, ["INBOX"], (err, list) => {
-    if (err) return console.log("ERR: "+err);
-    list.forEach(now => (now.isGroup == true && now.threadID != list.threadID) ? loginApiData.sendMessage("Goodnight everyone!", now.threadID) : '');
-  });
-}, {
-  scheduled: true,
-  timezone: "Asia/Manila"
-});
-cron.schedule('0 2 24 * * *', () => {
-  loginApiData.getThreadList(30, null, ["INBOX"], (err, list) => {
-    if (err) return console.log("ERR: "+err);
-    list.forEach(now => (now.isGroup == true && now.threadID != list.threadID) ? loginApiData.sendMessage("Goodmorning everyone don't forget to pray!", now.threadID) : '');
-  });
-}, {
-  scheduled: true,
-  timezone: "Asia/Manila"
-});
-//cron.schedule('0 0 0 * * *', () => {
-  //loginApiData.getThreadList(30, null, ["INBOX"], (err, list) => {
-    //if (err) return console.log("ERR: "+err);
-   // list.forEach(now => (now.isGroup == true && now.threadID != list.threadID) ? loginApiData.sendMessage("Good Morning everyone", now.threadID) : '');
-//});
-//}, {
-  //scheduled: true,
-  //*timezone: "Asia/Manila"
-/*});
-cron.schedule('0 0 1 * * *', () => {
-  loginApiData.getThreadList(30, null, ["INBOX"], (err, list) => {
-    if (err) return console.log("ERR: "+err);
-    list.forEach(now => (now.isGroup == true && now.threadID != list.threadID) ? loginApiData.sendMessage("Good Morning everyone", now.threadID) : '');
-  });
-}, {*/
- /* scheduled: true,
-  timezone: "Asia/Manila"
-});
-cron.schedule('0 0 5 * * *', () => {
-  loginApiData.getThreadList(30, null, ["INBOX"], (err, list) => {
-    if (err) return console.log("ERR: "+err);
-    list.forEach(now => (now.isGroup == true && now.threadID != list.threadID) ? loginApiData.sendMessage("Good Morning everyone", now.threadID) : '');
-  });
-}, {
-  scheduled: true,
-  timezone: "Asia/Manila"
-});
-cron.schedule('0 0 6 * * *', () => {
-  loginApiData.getThreadList(30, null, ["INBOX"], (err, list) => {
-    if (err) return console.log("ERR: "+err);
-    list.forEach(now => (now.isGroup == true && now.threadID != list.threadID) ? loginApiData.sendMessage("Good Morning everyone", now.threadID) : '');
-  });
-}, {
-  scheduled: true,
-  timezone: "Asia/Manila"
-});
-cron.schedule('0 0 7 * * *', () => {
-  loginApiData.getThreadList(30, null, ["INBOX"], (err, list) => {
-    if (err) return console.log("ERR: "+err);
-    list.forEach(now => (now.isGroup == true && now.threadID != list.threadID) ? loginApiData.sendMessage("Good Morning everyone", now.threadID) : '');
-  });
-}, {
-  scheduled: true,
-  timezone: "Asia/Manila"
-});
-cron.schedule('0 0 12 * * *', () => {
-  loginApiData.getThreadList(30, null, ["INBOX"], (err, list) => {
-    if (err) return /*console.log("ERR: "+err);
-    list.forEach(now => (now.isGroup == true && now.threadID != list.threadID) ? loginApiData.sendMessage("Good Afternoon everyone", now.threadID) : '');
-  });
-}, {
-  scheduled: true,
-  timezone: "Asia/Manila"
-});
-/*cron.schedule('0 0 12 * * *', () => {
-  loginApiData.getThreadList(30, null, ["INBOX"], (err, list) => {
-    if (err) return console.log("ERR: "+err);
-    list.forEach(now => (now.isGroup == true && now.threadID != list.threadID) ? loginApiData.sendMessage("Good Afternoon everyone!", now.threadID) : '');
-  });
-}, {
-  scheduled: true,
-  timezone: "Asia/Manila"
-});
-/*cron.schedule('0 0 18 * * *', () => {
-  loginApiData.getThreadList(30, null, ["INBOX"], (err, list) => {
-    if (err) return console.log("ERR: "+err);
-    list.forEach(now => (now.isGroup == true && now.threadID != list.threadID) ? loginApiData.sendMessage("Good Evening everyone", now.threadID) : '');
-  });
-}, {
-  scheduled: true,
-  timezone: "Asia/Manila"
-});
-/*cron.schedule('0 0 21 * * *', () => {
-  loginApiData.getThreadList(30, null, ["INBOX"], (err, list) => {
-    if (err) return console.log("ERR: "+err);
-    list.forEach(now => (now.isGroup == true && now.threadID != list.threadID) ? loginApiData.sendMessage("It's 9:00PM time to sleep Goodnight everyone.", now.threadID) : '');
-  });
-  }, {
-  scheduled: true,
-  timezone: "Asia/Manila"
-});
-/*cron.schedule('0 0 * * *', () => {
-  loginApiData.getThreadList(30, null, ["INBOX"], (err, list) => {
-    if (err) return console.log("ERR: "+err);
-    list.forEach(now => (now.isGroup == true && now.threadID != list.threadID) ? loginApiData.sendMessage("Good noon everyone", now.threadID) : '');
-  });
-}, {
-  scheduled: true,
-  timezone: "Asia/Manila"
-});*/
-//cron.schedule('0 0 20 * * *', () => {
- // loginApiData.getThreadList(30, null, ["INBOX"], (err, list) => {
-   // if (err) return console.log("ERR: "+err);
-  //  list.forEach(now => (now.isGroup == true && now.threadID != list.threadID) ? loginApiData.sendMessage("Oh it's already 8:00 pm, I need to charge ", now.threadID) : '');
- // });
-  //}, {
- // scheduled: true,
- // timezone: "Asia/Manila"
-//});
+
 cron.schedule(`0 0 */30 * * *`, () => {
 var bible = [`John 16:33
 
@@ -810,40 +443,13 @@ He will wipe away every tear from their eyes, and death shall be no more, neithe
   });
   }, {
   scheduled: true,
-  timezone: "Asia/Manila"
+  timezone: "Asia/Dhaka"
 });
-//cron.schedule('0 /60 * * * *', () => {
-//var bible = [ "Even a small amount of alcohol poured on a scorpion will drive it crazy and sting itself to death."," The crocodile can't stick its tongue out.","The oldest known animal in the world is a 405-year-old male, discovered in 2007.","Sharks, like other fish, have their reproductive organs located in the ribcage.","The eyes of the octopus have no blind spots. On average, the brain of an octopus has 300 million neurons. When under extreme stress, some octopuses even eat their trunks.","An elephant's brain weighs about 6,000g, while a cat's brain weighs only approximately 30g.","Cats and dogs have the ability to hear ultrasound.","Sheep can survive up to 2 weeks in a state of being buried in snow.","The smartest pig in the world is owned by a math teacher in Madison, Wisconsin (USA). It has the ability to memorize worksheets multiplying to 12.","Statistics show that each rattlesnake's mating lasts up to ... more than 22 hours", "Studies have found that flies are deaf.","In a lack of water, kangaroos can endure longer than camels.","","Dogs have 4 toes on their hind legs and 5 toes on each of their front paws.","The average flight speed of honey bees is 24km/h. They never sleep.","Cockroaches can live up to 9 days after having their heads cut off.","If you leave a goldfish in the dark for a long time, it will eventually turn white.","The flying record for a chicken is 13 seconds.","The mosquito that causes the most deaths to humans worldwide is the mosquito.","TThe quack of a duck doesn't resonate, and no one knows why.","Sea pond has no brain. They are also among the few animals that can turn their stomachs inside out.","Termites are active 24 hours a day and they do not sleep. Studies have also found that termites gnaw wood twice as fast when listening to heavy rock music.","Baby giraffes usually fall from a height of 1.8 meters when they are born.", "A tiger not only has a striped coat, but their skin is also streaked with stripes.."," Vultures fly without flapping their wings.","Turkeys can reproduce without mating.","Penguins are the only birds that can swim, but not fly. Nor have any penguins been found in the Arctic."," The venom of the king cobra is so toxic that just one gram can kill 150 people.","The venom of a small scorpion is much more dangerous than the venom of a large scorpion.","The length of an oyster's penis can be so 'monstrous' that it is 20 times its body size!","Rat's heart beats 650 times per minute.","The flea can jump 350 times its body length. If it also possessed that ability, a human would be able to jump the length of a football field once.","The faster the kangaroo jumps, the less energy it consumes.","Elephants are among the few mammals that can't jump! It was also discovered that elephants still stand after death.","Spiders have transparent blood."," Snails breathe with their feet.","Some lions mate more than 50 times a day.","Chuột reproduce so quickly that in just 18 months, from just 2 mice, the mother can give birth to 1 million heirs.","Hedgehog floats on water.","Alex is the world's first African gray parrot to question its own existence: What color am I?.","The reason why flamingos are pink-red in color is because they can absorb pigments from the shells of shrimp and shrimp that they eat every day."," Owls and pigeons can memorize human faces", "Cows are more dangerous than sharks","The single pair of wings on the back and the rear stabilizer help the flies to fly continuously, but their lifespan is not more than 14 days.","With a pair of endlessly long legs that can be up to 1.5 m high and weigh 20-25 kg, the ostrich can run faster than a horse. In addition, male ostriches can roar like a lion.","Kangaroos use their tails for balance, so if you lift a Kangaroo's tail off the ground, it won't be able to jump and stand.","Tigers not only have stripes on their backs but also printed on their skin. Each individual tiger is born with its own unique stripe.","If you are being attacked by a crocodile, do not try to get rid of their sharp teeth by pushing them away. Just poke the crocodile in the eye, that's their weakness.","Fleas can jump up to 200 times their height. This is equivalent to a man jumping on the Empire State Building in New York.","A cat has up to 32 muscles in the ear. That makes them have superior hearing ability","Koalas have a taste that does not change throughout life, they eat almost nothing but .. leaves of the eucalyptus tree.","The beaver's teeth do not stop growing throughout its life. If you do not want the teeth to be too long and difficult to control, the beaver must eat hard foods to wear them down.","Animals living in coastal cliffs or estuaries have extremely weird abilities. Oysters can change sex to match the mating method.","Butterflies have eyes with thousands of lenses similar to those on cameras, but they can only see red, green, and yellow..","Don't try this at home, the truth is that if a snail loses an eye, it can recover.","Giraffes do not have vocal cords like other animals of the same family, their tongues are blue-black.","Dog nose prints are like human fingerprints and can be used to identify different dogs."];
-  //var juswa1 = bible[Math.floor(Math.random() * bible.length)];
- // loginApiData.getThreadList(20, null, ["INBOX"], (err, list) => {
-   // if (err) return console.log("ERR: "+err);
-  //  list.forEach(now => (now.isGroup == true && now.threadID != list.threadID) ? loginApiData.sendMessage(`Random Fact every 1hour:\n\n ${juswa1}`, now.threadID) : '');
- // });
- // }, {
-//  scheduled: true,
-  //timezone: "Asia/Manila"
-//});
-        // setInterval(async function () {
-        //     // global.handleListen.stopListening(),
-        //     global.checkBan = ![],
-        //     setTimeout(function () {
-        //         return global.handleListen = loginApiData.listenMqtt(listenerCallback);
-        //     }, 500);
-        //     try {
-        //         await checkBan(loginApiData);
-        //     } catch {
-        //         return process.exit(0);
-        //     };
-        //     if (!global.checkBan) logger(global.getText('mirai', 'warningSourceCode'), '[ GLOBAL BAN ]');
-        //     global.config.autoClean && (global.data.threadInfo.clear(), global.client.handleReply = global.client.handleReaction = {});
-        //     if (global.config.DeveloperMode == !![]) 
-        //         return logger(global.getText('mirai', 'refreshListen'), '[ DEV MODE ]');
-        // }, 600000);
     });
 }
-//////////////////////////////////////////////
-//========= Connecting to Database =========//
-//////////////////////////////////////////////
+////////////////////////////////////////////////////////////
+//========= Connecting to Database of Meta Hydra =========//
+////////////////////////////////////////////////////////////
 
 (async() => {
     try {
@@ -857,7 +463,7 @@ He will wipe away every tear from their eyes, and death shall be no more, neithe
         botData.models = models
         onBot(botData);
     } catch (error) { logger(global.getText('mirai', 'successConnectDatabase', JSON.stringify(error)), '[ DATABASE ]'); }
-console.log(chalk.bold.hex("#eff1f0").bold("================== SUCCESFULLY ====================="));
+console.log(chalk.bold.hex("#eff1f0").bold("================== HI I am Meta Hydra iii ====================="));
    
 })();
 process.on('unhandledRejection', (err, p) => {});
