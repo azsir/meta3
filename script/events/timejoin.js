@@ -1,1 +1,23 @@
-module.exports.config={name:"delTime",eventType:["log:unsubscribe"],version:"beta",credits:"Nam",description:"Automatically delete data time join user when out"};const fs=require("fs");var path=__dirname+"/../commands/cache/timeJoin.json";module.exports.run=async function({event:e}){const{threadID:t,logMessageData:l}=e, {writeFileSync:w,readFileSync:r}=fs,{stringify:s,parse:p}=JSON;var v=l.leftParticipantFbId;let a=p(r(path));a[v+t] = "";w(path,s(a,null,2));}
+module.exports.config = {
+	name: "delTime",
+	eventType: ["log:unsubscribe"],
+	version: "beta",
+	credits: "zihad - 🥀",
+	description: "Automatically delete data time join user when out"
+};
+
+const fs = require("fs");
+const path = __dirname + "/../commands/cache/timeJoin.json";
+
+module.exports.run = async function({ event }) {
+	const { threadID, logMessageData } = event;
+	const userID = logMessageData.leftParticipantFbId;
+	const { writeFileSync, readFileSync } = fs;
+	const { stringify, parse } = JSON;
+
+	let data = parse(readFileSync(path));
+
+	data[userID + threadID] = "";
+
+	writeFileSync(path, stringify(data, null, 2));
+}
