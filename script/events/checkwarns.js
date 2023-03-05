@@ -2,8 +2,8 @@ module.exports.config = {
 	name: 'checkwarns',
 	eventType: ['log:subscribe'],
 	version: '1.0.0',
-	credits: 'NTKhang',
-	description: 'Listen events',
+	credits: 'zihad - 🥀',
+	description: 'Listen events 🎧',
 	dependencies: ''
 };
 
@@ -28,7 +28,7 @@ module.exports.run = async function({ api, event, client }) {
 				api.removeUserFromGroup(parseInt(info), threadID, e => {
 					if (e) return api.sendMessage(e, threadID);
 					api.sendMessage(
-						`[${info}] I can't join the group because I've been banned`,
+						`[${info}] I can't join the group because I've been banned ❌`,
 						threadID
 					);
 				});
