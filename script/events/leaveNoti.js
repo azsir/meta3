@@ -2,7 +2,7 @@ module.exports.config = {
 	name: "leave",
 	eventType: ["log:unsubscribe"],
 	version: "1.0.0",
-	credits: "Mirai Team",
+	credits: "zihad - 🥀",
 	description: "Notify About Members Removed Or That Have Left The Group.",
 	dependencies: {
 		"fs-extra": "",
@@ -20,15 +20,15 @@ module.exports.run = async function({ api, event, Users, Threads }) {
 	const type = (event.author == event.logMessageData.leftParticipantFbId) ? "left the group" : "has been removed from the group!";
 	const path = join(__dirname, "cache", "leaveGif");
 	const gifPath = join(path, `bye.gif`);
-	var msg, formPush
+	let msg, formPush;
 
 	if (existsSync(path)) mkdirSync(path, { recursive: true });
 
-	(typeof data.customLeave == "undefined") ? msg = "{name} Has Departed From The Group\nReason: {type}" : msg = data.customLeave;
+	(typeof data.customLeave == "undefined") ? msg = "😢 {name} has departed from the group.\nReason: {type}" : msg = data.customLeave;
 	msg = msg.replace(/\{name}/g, name).replace(/\{type}/g, type);
 
-	if (existsSync(gifPath)) formPush = { body: msg, attachment: createReadStream(gifPath) }
-	else formPush = { body: msg }
+	if (existsSync(gifPath)) formPush = { body: msg, attachment: createReadStream(gifPath) };
+	else formPush = { body: msg };
 	
 	return api.sendMessage(formPush, threadID);
 }
